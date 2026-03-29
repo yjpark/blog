@@ -8,9 +8,9 @@ author = "YJ Park, Claude"
 tags = ["litmus", "dioxus"]
 +++
 
-Every few months I get the itch to switch terminal themes. The cycle is always the same: find something beautiful in a screenshot, spend 15 minutes editing kitty.conf and neovim configs, open a `git diff` — and realize the green-on-green is completely unreadable. Revert. Try the next one. Repeat.
+Every few months I get the itch to switch terminal themes. The cycle is always the same: find something beautiful in a screenshot, spend a few minutes editing kitty.conf and neovim configs, open a `git diff` — and realize the green-on-green is completely unreadable. Revert. Try the next one. Repeat.
 
-On NixOS it's worse — every config change means a home-manager rebuild. A theme "test drive" becomes a 5-minute commit-build-evaluate loop, per theme, per app.
+Using Nix (highly recommend) it's worse — every config change means a home-manager rebuild. A theme "test drive" becomes a 5-minute commit-build-evaluate loop, per theme, per app.
 
 The problem isn't finding themes. It's that you can't see how one actually looks across your real workflow until you've fully committed to it. So I built [Litmus](https://litmus.edger.dev).
 
