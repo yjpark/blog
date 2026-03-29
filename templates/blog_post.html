@@ -17,7 +17,7 @@
             {% if section.extra.tags %}
             <div class="post-header-tags font-serif">
                 {% for tag in section.extra.tags %}
-                <a href="/tags/{{ tag }}/" class="post-tag">#{{ tag }}</a>
+                <span class="post-tag">#{{ tag }}</span>
                 {% endfor %}
             </div>
             {% endif %}
@@ -29,7 +29,7 @@
     {% if section.extra.tags %}
     <div class="post-tags">
         {% for tag in section.extra.tags %}
-        <a href="/tags/{{ tag }}/" class="post-tag font-serif">#{{ tag }}</a>
+        <span class="post-tag font-serif">#{{ tag }}</span>
         {% endfor %}
     </div>
     {% endif %}

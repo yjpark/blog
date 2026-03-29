@@ -1,6 +1,7 @@
 +++
 title = "SILP: Simple Individual Line Preprocessor"
 path = "/blog/2014/04/12/silp-simple-individual-line-preprocessor/"
+template = "blog_post.html"
 
 [extra]
 date = "2014-04-12"
@@ -92,20 +93,21 @@ Full Example With SILP
 ----------------------
 After implementing SILP, here is how I can remove the duplicated codes in the previous online player checking logic, here is the `silp_cs.md` file:
 
-    # LOBBY_SERVER_RPC_CHECK_ONLINE_PLAYER(eventId, nakRPC) #
-    ```C#
-    float startTime = Monitor.AddStartedEvent(${eventId});
+```markdown
+# LOBBY_SERVER_RPC_CHECK_ONLINE_PLAYER(eventId, nakRPC) #
+```C#
+float startTime = Monitor.AddStartedEvent(${eventId});
 
-    string error = LobbyNetError.ACCOUNT_ONLINE_WITH_OTHER_DEVICE;
-    IEnumerator checkOnline = client.CheckOnlinePlayer(_OnlinePlayerInfoBucket, () => {
-        error = null;
-    });
-    while (checkOnline.MoveNext()) yield return checkOnline.Current;
-    if (error != null) {
-        LobbyRPCUtils.SendNak(this, client, ${eventId}, ${nakRPC}, error);
-        yield break;
-    }
-    ```
+string error = LobbyNetError.ACCOUNT_ONLINE_WITH_OTHER_DEVICE;
+IEnumerator checkOnline = client.CheckOnlinePlayer(_OnlinePlayerInfoBucket, () => {
+    error = null;
+});
+while (checkOnline.MoveNext()) yield return checkOnline.Current;
+if (error != null) {
+    LobbyRPCUtils.SendNak(this, client, ${eventId}, ${nakRPC}, error);
+    yield break;
+}
+```
 
 The format is actually a valid [github flavored markdown](https://help.github.com/articles/github-flavored-markdown), only supported syntax is the h1 title (has to be like `# macro(param1, param2) #`), and code block.
 

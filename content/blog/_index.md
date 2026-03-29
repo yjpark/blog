@@ -106,12 +106,6 @@ url = "/blog/2012/08/30/game-engine-based-on-marmalade-and-iwgame/"
 year = "2012"
 
 [[extra.posts]]
-title = "PettyFun Game Studio Established"
-date = "2012-07-27"
-url = "/blog/2012/07/27/pettyfun-game-studio-established/"
-year = "2012"
-
-[[extra.posts]]
 title = "PlantUML Plugin for Octopress"
 date = "2012-04-30"
 url = "/blog/2012/04/30/plantuml-plugin-for-octopress/"
