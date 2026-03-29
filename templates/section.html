@@ -3,23 +3,29 @@
 {% block title %}{{ section.title }} - {{ config.title }}{% endblock %}
 
 {% block content %}
-<h1>{{ section.title }}</h1>
-{{ section.content | safe }}
+<h1 class="page-title font-serif"><em>{{ section.title }}</em></h1>
+
+{% if section.content %}
+<div class="section-content">{{ section.content | safe }}</div>
+{% endif %}
 
 {% if section.pages %}
-<ul class="post-list">
+<div class="post-list">
 {% for page in section.pages %}
-    <li>
-        <div class="post-title"><a href="{{ page.path }}">{{ page.title }}</a></div>
-        {% if page.extra.date or page.extra.author %}
-        <div class="post-meta">
-            {% if page.extra.date %}{{ page.extra.date }}{% endif %}
-            {% if page.extra.date and page.extra.author %} · {% endif %}
-            {% if page.extra.author %}{{ page.extra.author }}{% endif %}
+    <a href="{{ page.path }}" class="post-preview">
+        <div class="post-preview-content">
+            <h3 class="post-preview-title font-serif">{{ page.title }}</h3>
+            {% if page.extra.date %}
+            <p class="post-preview-date">{{ page.extra.date }}</p>
+            {% endif %}
         </div>
-        {% endif %}
-    </li>
+        <span class="post-preview-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </span>
+    </a>
 {% endfor %}
-</ul>
+</div>
 {% endif %}
 {% endblock %}

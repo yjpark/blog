@@ -5,18 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ config.title }}{% endblock %}</title>
     {% if config.description %}<meta name="description" content="{{ config.description }}">{% endif %}
+    <link rel="icon" type="image/svg+xml" href="{{ get_url(path='favicon.svg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path='favicon.ico') }}">
     <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
+    <script>
+      try { if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark'); } catch(e) {}
+    </script>
 </head>
 <body>
-    <main>
-        <header>
-            <h1><a href="/">{{ config.title }}</a></h1>
-            <nav>
+    <div class="site-wrapper">
+        <nav class="site-nav">
+            <div class="nav-inner">
+                <div class="nav-links">
+                    <a href="/" class="nav-link font-serif">Home</a>
+                    <a href="/posts/" class="nav-link font-serif">Posts</a>
+                </div>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="theme-toggle-icon" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8"></circle>
+                </svg>
+            </button>
+        </nav>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-links font-serif">
                 <a href="/">Home</a>
                 <a href="/posts/">Posts</a>
-            </nav>
-        </header>
-        {% block content %}{% endblock %}
-    </main>
+            </div>
+            <p class="copyright">&copy; 2026 {{ config.title }}</p>
+        </footer>
+    </div>
+    <script src="{{ get_url(path='js/theme-toggle.js') }}"></script>
 </body>
 </html>
