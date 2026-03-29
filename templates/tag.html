@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}#{{ section.extra.tag }} - {{ config.title }}{% endblock %}
+
+{% block content %}
+<h1 class="page-title font-serif"><em>#{{ section.extra.tag }}</em></h1>
+
+{% if section.extra.posts %}
+<div class="post-list">
+{% for post in section.extra.posts %}
+    <a href="{{ post.path }}" class="post-preview">
+        <div class="post-preview-content">
+            <h3 class="post-preview-title font-serif">{{ post.title }}</h3>
+            {% if post.date %}
+            <p class="post-preview-date">{{ post.date }}</p>
+            {% endif %}
+        </div>
+        <span class="post-preview-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </span>
+    </a>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

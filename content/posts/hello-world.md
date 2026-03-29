@@ -5,6 +5,7 @@ weight = 1
 [extra]
 date = "2024-01-01"
 author = "You"
+tags = []
 +++
 
 Welcome to your first blog post!

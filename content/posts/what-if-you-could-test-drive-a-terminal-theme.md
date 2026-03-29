@@ -4,7 +4,8 @@ weight = 10
 
 [extra]
 date = "2026-03-29"
-author = "YJ"
+author = "YJ Park, Claude"
+tags = ["litmus", "dioxus"]
 +++
 
 Every few months I get the itch to switch terminal themes. The cycle is always the same: find something beautiful in a screenshot, spend 15 minutes editing kitty.conf and neovim configs, open a `git diff` — and realize the green-on-green is completely unreadable. Revert. Try the next one. Repeat.

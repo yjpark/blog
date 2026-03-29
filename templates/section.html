@@ -12,19 +12,26 @@
 {% if section.pages %}
 <div class="post-list">
 {% for page in section.pages %}
-    <a href="{{ page.path }}" class="post-preview">
+    <div class="post-preview">
         <div class="post-preview-content">
-            <h3 class="post-preview-title font-serif">{{ page.title }}</h3>
-            {% if page.extra.date %}
-            <p class="post-preview-date">{{ page.extra.date }}</p>
-            {% endif %}
+            <a href="{{ page.path }}" class="post-preview-link">
+                <h3 class="post-preview-title font-serif">{{ page.title }}</h3>
+            </a>
+            <div class="post-preview-meta">
+                {% if page.extra.date %}
+                <span class="post-preview-date">{{ page.extra.date }}</span>
+                {% endif %}
+                {% if page.extra.tags %}
+                <span class="post-preview-tags font-serif">{% for tag in page.extra.tags %}<a href="/tags/{{ tag }}/" class="post-preview-tag">#{{ tag }}</a>{% endfor %}</span>
+                {% endif %}
+            </div>
         </div>
-        <span class="post-preview-arrow" aria-hidden="true">
+        <a href="{{ page.path }}" class="post-preview-arrow" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-        </span>
-    </a>
+        </a>
+    </div>
 {% endfor %}
 </div>
 {% endif %}

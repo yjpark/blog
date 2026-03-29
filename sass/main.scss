@@ -251,7 +251,6 @@ main {
   align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
-  text-decoration: none;
   color: var(--color-text);
   margin-bottom: 2.5rem;
 
@@ -271,6 +270,11 @@ main {
   flex-grow: 1;
 }
 
+.post-preview-link {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
 .post-preview-title {
   font-size: 1.25rem;
   font-weight: 500;
@@ -281,26 +285,52 @@ main {
   }
 }
 
-.post-preview-date {
+.post-preview-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: 0.25rem;
+}
+
+.post-preview-date {
   font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
-.post-preview-excerpt {
-  margin-top: 0.75rem;
-  font-size: 0.875rem;
+.post-preview-tags {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.post-preview-tag {
   color: var(--color-text-muted);
-  line-height: 1.5;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
 }
 
 .post-preview-arrow {
   display: none;
   flex-shrink: 0;
   margin-top: 0.25rem;
+  color: var(--color-text);
+  opacity: 0;
+  transition: opacity 0.15s ease;
 
   @media (min-width: 640px) {
     display: inline-flex;
+  }
+
+  .post-preview:hover & {
+    opacity: 1;
   }
 }
 
@@ -328,10 +358,63 @@ main {
   }
 }
 
-.post-meta {
+.post-header-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: 1rem;
+}
+
+.post-meta {
   font-size: 0.875rem;
   color: var(--color-text-muted);
+}
+
+.post-header-tags {
+  display: flex;
+  gap: 0.75rem;
+}
+
+// ─── Tags ────────────────────────────────────────────────
+
+.post-tags {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.post-tag {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.tag-link {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
 }
 
 .back-link {
