@@ -542,6 +542,23 @@ main {
   }
 }
 
+// ─── Archive ─────────────────────────────────────────────
+
+.archive-year {
+  margin-bottom: 3rem;
+}
+
+.archive-year-heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 640px) {
+    font-size: 1.5rem;
+  }
+}
+
 // ─── Footer ──────────────────────────────────────────────
 
 .site-footer {

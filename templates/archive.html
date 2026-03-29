@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} - {{ config.title }}{% endblock %}
+
+{% block content %}
+<h1 class="page-title font-serif"><em>{{ section.title }}</em></h1>
+
+{% set grouped = section.extra.posts | groupby(attribute="year") %}
+{% for g in grouped %}
+<section class="archive-year">
+    <h2 class="archive-year-heading font-serif">{{ g | first }}</h2>
+    <div class="post-list">
+    {% for post in g | last %}
+        <div class="post-preview">
+            <div class="post-preview-content">
+                <a href="{{ post.url }}" class="post-preview-link">
+                    <h3 class="post-preview-title font-serif">{{ post.title }}</h3>
+                </a>
+                <div class="post-preview-meta">
+                    <span class="post-preview-date">{{ post.date }}</span>
+                </div>
+            </div>
+            <a href="{{ post.url }}" class="post-preview-arrow" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+{% endfor %}
+{% endblock %}
